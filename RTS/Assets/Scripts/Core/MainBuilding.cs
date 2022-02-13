@@ -1,18 +1,24 @@
-using System.Collections;
-using System.Collections.Generic;
+using Abstractions;
 using UnityEngine;
 
-public class MainBuilding : MonoBehaviour
+public class MainBuilding : MonoBehaviour, IUnitProducer, ISelectable
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] private GameObject _unitPrefab;
+    [SerializeField] private Transform _unitsParent;
 
-    // Update is called once per frame
-    void Update()
+    [SerializeField] private float _maxHealth = 1000;
+    [SerializeField] private Sprite _icon;
+
+    private float _health = 1000;
+
+    public float Health => _health;
+    public float MaxHealth => _maxHealth;
+    public Sprite Icon => _icon;
+
+    public void ProduceUnit()
     {
-        
+        Instantiate(_unitPrefab, 
+            new Vector3(Random.Range(-10, 10), 0, Random.Range(-10, 10)), 
+            Quaternion.identity, _unitsParent);
     }
 }
