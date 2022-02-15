@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class OutlineSelector : MonoBehaviour
 {
-    [SerializeField] private MeshRenderer[] _renderers;
+    [SerializeField] private Renderer[] _renderers;
     [SerializeField] private Material _outlineMaterial;
 
     private bool _isSelectedCache;

@@ -14,7 +14,7 @@ public class MainBuilding : CommandExecutorBase<IProduceUnitCommand>, ISelectabl
     public float MaxHealth => _maxHealth;
     public Sprite Icon => _icon;
 
-    public override void ExecuteSpecificCommand<T>(T command)
+    public override void ExecuteSpecificCommand(IProduceUnitCommand command)
     {
         Instantiate(command.UnitPrefab,
             new Vector3(Random.Range(-10, 10), 0, Random.Range(-10, 10)),
