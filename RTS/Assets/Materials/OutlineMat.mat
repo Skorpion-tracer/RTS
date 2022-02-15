@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: OutlineMat
-  m_Shader: {fileID: 4800000, guid: dc7c73d3ec0c86e4a92212335aed6ec0, type: 3}
+  m_Shader: {fileID: 4800000, guid: 7f780e10f5969a245bc5001c70739130, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -67,6 +67,7 @@ Material:
     - _Mode: 0
     - _OcclusionStrength: 1
     - _Outline: 0
+    - _OutlineWidth: 1.07
     - _Parallax: 0.02
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
