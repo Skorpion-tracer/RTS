@@ -1670,6 +1670,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _maxHealth: 1000
   _icon: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  _pivotPoint: {fileID: 9199834117909649631}
 --- !u!1 &9199834117909349633
 GameObject:
   m_ObjectHideFlags: 0

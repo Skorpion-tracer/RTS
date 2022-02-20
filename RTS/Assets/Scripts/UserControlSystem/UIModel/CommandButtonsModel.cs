@@ -4,7 +4,7 @@ using Zenject;
 public class CommandButtonsModel
 {
     public event Action<ICommandExecutor> OnCommandAccepted;
-    public event Action OnCommandSent;
+    public event Action OnCommandSend;
     public event Action OnCommandCancel;
 
     [Inject] private CommandCreatorBase<IProduceUnitCommand> _unitProducer;
@@ -21,6 +21,8 @@ public class CommandButtonsModel
         {
             ProcessOnCancel();
         }
+        _commandIsPending = true;
+        OnCommandAccepted?.Invoke(commandExecutor);
 
         _unitProducer.ProcessCommandExecutor(commandExecutor, command => ExecuteCommandWrapper(commandExecutor, command));
         _attacker.ProcessCommandExecutor(commandExecutor, command => ExecuteCommandWrapper(commandExecutor, command));
@@ -32,7 +34,7 @@ public class CommandButtonsModel
     {
         commandExecutor.ExecuteCommand(command);
         _commandIsPending = false;
-        OnCommandSent?.Invoke();
+        OnCommandSend?.Invoke();
     }
 
     public void OnSelectionChanged()

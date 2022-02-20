@@ -9,6 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c4870a19b6fc2cd4188cd0ce74c66302, type: 3}
-  m_Name: SelectableValue
+  m_Script: {fileID: 11500000, guid: 26dc8398e6d985b45b2bc67e041a2dc5, type: 3}
+  m_Name: GroundClicksRMB
   m_EditorClassIdentifier: 
