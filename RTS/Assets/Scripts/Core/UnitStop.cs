@@ -1,7 +1,11 @@
-﻿public class UnitStop : CommandExecutorBase<IStopCommand>
+﻿using System.Threading;
+
+public class UnitStop : CommandExecutorBase<IStopCommand>
 {
+    public CancellationTokenSource CancellationTokenSource { get; set; }
+
     public override void ExecuteSpecificCommand(IStopCommand command)
     {
-        command.CallCommand();
+        CancellationTokenSource?.Cancel();
     }
 }
