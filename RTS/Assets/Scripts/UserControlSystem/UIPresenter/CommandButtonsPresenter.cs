@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
+using System;
+using UniRx;
 
 public class CommandButtonsPresenter : MonoBehaviour
 {
@@ -9,6 +11,7 @@ public class CommandButtonsPresenter : MonoBehaviour
     [SerializeField] private CommandButtonsView _view;
 
     [Inject] private CommandButtonsModel _model;
+    [Inject] private IObservable<ISelectable> _selectedValues;
 
     private ISelectable _currentSelectable;
 
@@ -19,8 +22,7 @@ public class CommandButtonsPresenter : MonoBehaviour
         _model.OnCommandCancel += _view.UnBlockAllInteractions;
         _model.OnCommandAccepted += _view.BlockInteractions;
 
-        _selectable.OnNewValue += OnSelected;
-        OnSelected(_selectable.CurrentValue);        
+        _selectedValues.Subscribe(OnSelected);
     }
 
     private void OnSelected(ISelectable selectable)

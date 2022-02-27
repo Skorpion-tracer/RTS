@@ -1,4 +1,6 @@
+using Abstractions;
 using Assets.Scripts.Utils;
+using System;
 using UnityEngine;
 using Zenject;
 
@@ -16,5 +18,7 @@ public class AssetsInstaller : ScriptableObjectInstaller<AssetsInstaller>
 
         Container.Bind<IAwaitable<IAttackable>>().FromInstance(_attackableClicksRMB);
         Container.Bind<IAwaitable<Vector3>>().FromInstance(_groundClicksRMB);
+
+        Container.Bind<IObservable<ISelectable>>().FromInstance(_selectables);
     }
 }

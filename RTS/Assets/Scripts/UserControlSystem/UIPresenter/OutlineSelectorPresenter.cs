@@ -1,5 +1,8 @@
 using Abstractions;
 using UnityEngine;
+using Zenject;
+using System;
+using UniRx;
 
 public class OutlineSelectorPresenter : MonoBehaviour
 {
@@ -8,10 +11,11 @@ public class OutlineSelectorPresenter : MonoBehaviour
     private OutlineSelector[] _outlineSelectors;
     private ISelectable _currentSelectable;
 
+    [Inject] private IObservable<ISelectable> _selectedValues;
+
     private void Start()
     {
-        _selectable.OnNewValue += onSelected;
-        onSelected(_selectable.CurrentValue);
+        _selectedValues.Subscribe(onSelected);
     }
 
     private void onSelected(ISelectable selectable)
